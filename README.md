@@ -6,6 +6,7 @@
 ## Installation
 
 # install app's dependencies
+``` bash
 $ npm install
 ```
 
