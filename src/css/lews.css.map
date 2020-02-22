@@ -1,0 +1,1 @@
+{"version":3,"sources":["lews.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,iBAAiB;IACjB,kBAAkB;CACrB;;AAED;IACI,iBAAiB;CACpB","file":"lews.css","sourcesContent":[".message-card{\n    margin-top: 5px;\n    margin-bottom: 5px;\n    margin-left: 5px;\n    margin-right: 5px;\n}\n\n.nopadding{\n    padding: 0 0 0 0;\n}\n"]}
