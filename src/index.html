@@ -48,7 +48,7 @@
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
   <script>
-    var ws = new WebSocket("ws://19scomps001.ncl.ac.uk:5678/")
+    var ws = new WebSocket("ws://19scomps001.nc.ac.uk:5678/")
     ws.onmessage = function (event) {
       var f = document.getElementById("tweet-feed-div");
       var msg = JSON.parse(event.data);
@@ -152,7 +152,7 @@
                   <div class="card-header">Twitter</div>
                   <div id="tweet-feed-div" class="card-body nopadding" style="height: 400px; overflow: auto">
 
-               <!--     <div
+                   <div
                       class="w3-panel w3-border-blue w3-light-blue w3-leftbar w3-round-large message-card animated fadeIn">
                       <img src="https://pbs.twimg.com/profile_images/915558869102764032/t_bfsrYO_normal.jpg"
                         style="float: left;">
@@ -167,7 +167,7 @@
                       <div id="tf-user" style="float: left;">User: </div>
                       <div id="tf-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam purus leo,
                         rhoncus id aliquet sed,</div>
-                    </div> -->
+                    </div> 
 
                   </div>
                 </div>
