@@ -48,7 +48,7 @@
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
   <script>
-    var ws = new WebSocket("ws://19scomps001:5678/")
+    var ws = new WebSocket("ws://19scomps001.ncl.ac.uk:5678/")
     ws.onmessage = function (event) {
       var f = document.getElementById("tweet-feed-div");
       var msg = JSON.parse(event.data);
@@ -139,7 +139,7 @@
                   <!-- /.row-->
                   <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item"
-                      src="http://19scomps001.ncl.ac.uk:5601/app/kibana#/visualize/edit/334084f0-52fd-11e8-a160-89cc2ad9e8e2?embed=true&_g=()"
+                      src="http://19scomps001.ncl.ac.uk:5601/app/kibana#/visualize/edit/65b5a440-58b1-11ea-8b9b-b305ac14a566?embed=true&_g=()"
                       allowfullscreen></iframe>
                   </div>
                 </div>
