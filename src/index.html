@@ -28,6 +28,7 @@
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/lews.css" rel="stylesheet">
+  <link href="css/twitter-feed.css" rel="stylesheet">
   <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
   <!-- Global site tag (gtag.js) - Google Analytics-->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
@@ -46,6 +47,20 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <script>
+    var ws = new WebSocket("ws://19scomps001:5678/")
+    ws.onmessage = function (event) {
+      var f = document.getElementById("tweet-feed-div");
+      var msg = JSON.parse(event.data);
+      var newdiv = '<div class="w3-panel w3-border-blue w3-light-blue w3-leftbar w3-round-large message-card animated fadeIn"><img src="'+msg.profile_image_url_https+'" style="float: left;"> <div id="tf-user" style="float: left;"><strong>'+msg.user+' : </strong></div> <div id="tf-message">'+msg.text+'</div></div>';
+      f.insertAdjacentHTML( 'beforeend', newdiv );
+      f.lastChild.scrollIntoView(false)
+    };
+
+  </script>
+
+
+
   <header class="app-header navbar">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
       <span class="navbar-toggler-icon"></span>
@@ -97,30 +112,12 @@
           </li>
           <li class="nav-title">Social Media</li>
           <li class="nav-item">
-            <a class="nav-link" href="colors.html">
+            <a class="nav-link" href="#">
               <i class="nav-icon icon-drop"></i>Twitter</a>
           </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Facebook</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/buttons.html">
-                  <i class="nav-icon icon-cursor"></i> Buttons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/button-group.html">
-                  <i class="nav-icon icon-cursor"></i> Buttons Group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/dropdowns.html">
-                  <i class="nav-icon icon-cursor"></i> Dropdowns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/brand-buttons.html">
-                  <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
-              </li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-drop"></i>Facebook ONTO-Dias</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -129,7 +126,7 @@
     </div>
     <main class="main">
       <!-- Breadcrumb-->
-   <!--  <ol class="breadcrumb">
+      <!--  <ol class="breadcrumb">
         <li class="breadcrumb-item active">Live Dashboard</li>
       </ol> -->
       <div class="container-fluid">
@@ -137,7 +134,7 @@
           <!-- /.row-->
           <div class="row">
             <div class="col-xl-9 nopadding">
-              <div class="card mapcard" >
+              <div class="card mapcard">
                 <div class="card-body nopadding">
                   <!-- /.row-->
                   <div class="embed-responsive embed-responsive-16by9">
@@ -151,32 +148,27 @@
             </div>
             <div class="col-sm-3">
               <div class="row">
-                <div class="card mapcard">
+                <div class="card mapcard" style="min-width: 24rem;">
                   <div class="card-header">Twitter</div>
-                  <div class="w3-panel w3-border-blue w3-pale-blue w3-leftbar w3-round-large message-card">
-                    <table class="w3-table w3-hoverable w3-small">
-                      <tr>Username: xyz</tr>
-                      <tr>
-                        <td>Message: The New York was happened telephone leaning pole from 03/03/2010 to 21/03/2010,
-                          which
-                          hazards will happen ?</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="https://www.latlong.net/c/?lat=51.5072&long=0.1275">Lat: 51.5072; Long: 0.1275</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <p>Results</p>
-                          <ul class="w3-ul nopadding">
-                            <li class="nopadding">Landslide; confidence: 0.569 </li>
-                            <li class="nopadding">Flood; confidence: 0.915</li>
-                          </ul>
-                        </td>
-                      </tr>
+                  <div id="tweet-feed-div" class="card-body nopadding" style="height: 400px; overflow: auto">
 
-                    </table>
+               <!--     <div
+                      class="w3-panel w3-border-blue w3-light-blue w3-leftbar w3-round-large message-card animated fadeIn">
+                      <img src="https://pbs.twimg.com/profile_images/915558869102764032/t_bfsrYO_normal.jpg"
+                        style="float: left;">
+                      <div id="tf-user" style="float: left;">User: </div>
+                      <div id="tf-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam purus leo,
+                        rhoncus id aliquet sed,</div>
+                    </div>
+                    <div
+                      class="w3-panel w3-border-blue w3-light-blue w3-leftbar w3-round-large message-card animated fadeIn">
+                      <img src="https://pbs.twimg.com/profile_images/915558869102764032/t_bfsrYO_normal.jpg"
+                        style="float: left;">
+                      <div id="tf-user" style="float: left;">User: </div>
+                      <div id="tf-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam purus leo,
+                        rhoncus id aliquet sed,</div>
+                    </div> -->
+
                   </div>
                 </div>
               </div>
@@ -184,36 +176,64 @@
               <div class="row">
                 <div class="card">
                   <div class="card-header">FB Messenger : ONTO-Dias</div>
-                  <div class="w3-panel w3-border-blue w3-pale-blue w3-leftbar w3-round-large message-card">
-                    <table class="w3-table w3-hoverable w3-small">
-                      <tr>Username: xyz</tr>
-                      <tr>
-                        <td>Message: The New York was happened telephone leaning pole from 03/03/2010 to 21/03/2010,
-                          which
-                          hazards will happen ?</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="https://www.latlong.net/c/?lat=51.5072&long=0.1275">Lat: 51.5072; Long: 0.1275</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <p>Results</p>
-                          <ul class="w3-ul nopadding">
-                            <li class="nopadding">Landslide; confidence: 0.569 </li>
-                            <li class="nopadding">Flood; confidence: 0.915</li>
-                          </ul>
-                        </td>
-                      </tr>
+                  <div style="height: 400px; overflow: auto">
+                    <div class="w3-panel w3-border-blue w3-pale-blue w3-leftbar w3-round-large message-card">
+                      <table class="w3-table w3-hoverable w3-small">
+                        <tr>Username: xyz</tr>
+                        <tr>
+                          <td>Message: The New York was happened telephone leaning pole from 03/03/2010 to 21/03/2010,
+                            which
+                            hazards will happen ?</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://www.latlong.net/c/?lat=51.5072&long=0.1275">Lat: 51.5072; Long: 0.1275</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Results</p>
+                            <ul class="w3-ul nopadding">
+                              <li class="nopadding">Landslide; confidence: 0.569 </li>
+                              <li class="nopadding">Flood; confidence: 0.915</li>
+                            </ul>
+                          </td>
+                        </tr>
 
-                    </table>
+                      </table>
+                    </div>
+
+                    <div class="w3-panel w3-border-blue w3-pale-blue w3-leftbar w3-round-large message-card">
+                      <table class="w3-table w3-hoverable w3-small">
+                        <tr>Username: xyz</tr>
+                        <tr>
+                          <td>Message: The New York was happened telephone leaning pole from 03/03/2010 to 21/03/2010,
+                            which
+                            hazards will happen ?</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <a href="https://www.latlong.net/c/?lat=51.5072&long=0.1275">Lat: 51.5072; Long: 0.1275</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>Results</p>
+                            <ul class="w3-ul nopadding">
+                              <li class="nopadding">Landslide; confidence: 0.569 </li>
+                              <li class="nopadding">Flood; confidence: 0.915</li>
+                            </ul>
+                          </td>
+                        </tr>
+
+                      </table>
+                    </div>
                   </div>
                 </div>
-              </div> 
+              </div>
             </div>
 
-            
+
           </div>
           <!-- /.card-->
           <!-- /.row-->
